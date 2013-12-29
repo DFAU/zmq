@@ -4,17 +4,42 @@ namespace React\ZMQ;
 
 use React\EventLoop\LoopInterface;
 
+/**
+ * Class Context
+ *
+ * @method \mixed getOpt(string $key) Get context option
+ * @method \React\ZMQ\SocketWrapper getSocket(int $type, string $persistent_id = NULL, callable $on_new_socket = NULL) Create a new socket
+ * @method \bool isPersistent() Whether the context is persistent
+ * @method \ZMQContext setOpt(int $key, mixed $value) Set a socket option
+ */
 class Context
 {
+
+    /**
+     * @var \React\EventLoop\LoopInterface
+     */
     private $loop;
+
+    /**
+     * @var \ZMQContext
+     */
     private $context;
 
+    /**
+     * @param LoopInterface $loop
+     * @param \ZMQContext $context
+     */
     public function __construct(LoopInterface $loop, \ZMQContext $context = null)
     {
         $this->loop = $loop;
         $this->context = $context ?: new \ZMQContext();
     }
 
+    /**
+     * @param $method
+     * @param $args
+     * @return mixed|SocketWrapper
+     */
     public function __call($method, $args)
     {
         $res = call_user_func_array(array($this->context, $method), $args);
@@ -24,6 +49,10 @@ class Context
         return $res;
     }
 
+    /**
+     * @param \ZMQSocket $socket
+     * @return SocketWrapper
+     */
     private function wrapSocket(\ZMQSocket $socket)
     {
         $wrapped = new SocketWrapper($socket, $this->loop);
@@ -35,6 +64,10 @@ class Context
         return $wrapped;
     }
 
+    /**
+     * @param mixed $type
+     * @return bool
+     */
     private function isReadableSocketType($type)
     {
         $readableTypes = array(
@@ -48,4 +81,5 @@ class Context
 
         return in_array($type, $readableTypes);
     }
+
 }
