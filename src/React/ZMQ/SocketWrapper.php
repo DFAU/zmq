@@ -101,12 +101,9 @@ class SocketWrapper extends EventEmitter
      */
     public function handleReadEvent()
     {
-        $messages = $this->socket->recvmulti(\ZMQ::MODE_NOBLOCK);
-        if (false !== $messages) {
-            if (1 === count($messages)) {
-                $this->emit('message', array($messages[0]));
-            }
-            $this->emit('messages', array($messages));
+        $message = $this->socket->recvmulti(\ZMQ::MODE_NOBLOCK);
+        if (false !== $message) {
+			$this->emit('message', array($message));
         }
     }
 
