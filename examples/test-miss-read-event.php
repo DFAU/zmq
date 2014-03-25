@@ -28,7 +28,7 @@ function pull_routine()
 {
     $loop = React\EventLoop\Factory::create();
 
-    $context = new React\ZMQ\Context($loop);
+    $context = new DFAU\ZMQ\Context($loop);
     $socket = $context->getSocket(ZMQ::SOCKET_PULL);
     $socket->bind('ipc://test.ipc');
     $socket->on('message', function() {

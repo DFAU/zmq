@@ -9,7 +9,7 @@
 // The expected output is a chaos of 's' and 'm' and equal
 // amounts of 'S' and 'M' as the messages are pulled.
 //
-// What might happen: A multipart message is not read as 
+// What might happen: A multipart message is not read as
 // multipart, so you'll never see the 'M'. If the ZMQ communication
 // breaks down you'll only see lowercase letters.
 
@@ -19,7 +19,7 @@ function pull_routine()
 {
     $loop = React\EventLoop\Factory::create();
 
-    $context = new React\ZMQ\Context($loop);
+    $context = new DFAU\ZMQ\Context($loop);
     $socket = $context->getSocket(ZMQ::SOCKET_PULL);
     $socket->bind('ipc://test2.ipc');
     $socket->on('message', function($msg) {
@@ -36,7 +36,7 @@ function push_routine()
 {
     $loop = React\EventLoop\Factory::create();
 
-    $context = new React\ZMQ\Context($loop);
+    $context = new DFAU\ZMQ\Context($loop);
     $socket = $context->getSocket(ZMQ::SOCKET_PUSH);
     $socket->connect('ipc://test2.ipc');
 

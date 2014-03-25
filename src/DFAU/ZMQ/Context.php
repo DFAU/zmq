@@ -1,6 +1,6 @@
 <?php
 
-namespace React\ZMQ;
+namespace DFAU\ZMQ;
 
 use React\EventLoop\LoopInterface;
 
@@ -8,7 +8,7 @@ use React\EventLoop\LoopInterface;
  * Class Context
  *
  * @method \mixed getOpt(string $key) Get context option
- * @method \React\ZMQ\SocketWrapper getSocket(int $type, string $persistent_id = NULL, callable $on_new_socket = NULL) Create a new socket
+ * @method \DFAU\ZMQ\SocketWrapper getSocket(int $type, string $persistent_id = NULL, callable $on_new_socket = NULL) Create a new socket
  * @method \bool isPersistent() Whether the context is persistent
  * @method \ZMQContext setOpt(int $key, mixed $value) Set a socket option
  */

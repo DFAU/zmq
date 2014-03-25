@@ -1,6 +1,6 @@
 <?php
 
-namespace React\ZMQ;
+namespace DFAU\ZMQ;
 
 use Evenement\EventEmitter;
 use React\EventLoop\LoopInterface;
@@ -8,9 +8,9 @@ use React\EventLoop\LoopInterface;
 /**
  * Class SocketWrapper
  *
- * @method \React\ZMQ\SocketWrapper bind(string $dsn, bool $force = false) Bind the socket
- * @method \React\ZMQ\SocketWrapper connect(string $dsn, bool $force = false) Connect the socket
- * @method \React\ZMQ\SocketWrapper disconnect(string $dsn) Disconnect a socket
+ * @method \DFAU\ZMQ\SocketWrapper bind(string $dsn, bool $force = false) Bind the socket
+ * @method \DFAU\ZMQ\SocketWrapper connect(string $dsn, bool $force = false) Connect the socket
+ * @method \DFAU\ZMQ\SocketWrapper disconnect(string $dsn) Disconnect a socket
  * @method \array getEndpoints() Returns an array containing elements 'bind' and 'connect'.
  * @method \string getPersistentId() Returns the persistent id string assigned of the object and null if socket is not persistent.
  * @method \mixed getSockOpt(string $key) Returns either a string or an integer depending on
@@ -18,9 +18,9 @@ use React\EventLoop\LoopInterface;
  * @method \bool isPersistent() Returns a boolean based on whether the socket is persistent or not.
  * @method \string recv(int $mode = false) Receives a message
  * @method \string recvMulti(int $mode = false) Receives a multipart message
- * @method \React\ZMQ\SocketWrapper sendmulti(array $message, int $mode = false) Sends a multipart message
- * @method \React\ZMQ\SocketWrapper setSockOpt(int $key, mixed $value) Set a socket option
- * @method \React\ZMQ\SocketWrapper unbind(string $dsn) Unbind the socket
+ * @method \DFAU\ZMQ\SocketWrapper sendmulti(array $message, int $mode = false) Sends a multipart message
+ * @method \DFAU\ZMQ\SocketWrapper setSockOpt(int $key, mixed $value) Set a socket option
+ * @method \DFAU\ZMQ\SocketWrapper unbind(string $dsn) Unbind the socket
  */
 class SocketWrapper extends EventEmitter
 {

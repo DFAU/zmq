@@ -1,6 +1,6 @@
 <?php
 
-namespace React\ZMQ;
+namespace DFAU\ZMQ;
 
 use Evenement\EventEmitter;
 use React\EventLoop\LoopInterface;
